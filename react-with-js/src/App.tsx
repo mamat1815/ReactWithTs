@@ -44,7 +44,7 @@ function App() {
 
   return (
     <>
-      <h1>Todo Mamat</h1>
+      <h1>Todo Mamat </h1>
       <input type="text" value={input} onChange={handleInputChange} />
       <button onClick={handleAddTodo}>Tambah Todo</button>  
       <ul>
