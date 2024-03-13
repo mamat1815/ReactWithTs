@@ -37,10 +37,12 @@ function App() {
   };
 
 
-  const handleDeleteTodo = (index: number) => {
-    const updatedTodos = todos.filter((_, i) => i !== index);
+  const handleDeleteTodo = (id: number) => {
+    const updatedTodos = todos.filter(todo => todo.id !== id);
     setTodos(updatedTodos);
   };
+
+  
 
   return (
     <>
@@ -48,15 +50,15 @@ function App() {
       <input type="text" value={input} onChange={handleInputChange} />
       <button onClick={handleAddTodo}>Tambah Todo</button>  
       <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
+        {todos.map((todo) => (
+          <li key={todo.id}>
             <input
               type="checkbox"
               checked={todo.completed}
               onChange={() => handletoggleTodo(todo.id)}
             />
             {todo.text}
-            <button onClick={() => handleDeleteTodo(index)}>Hapus</button>
+            <button onClick={() => handleDeleteTodo(todo.id)}>Hapus</button>
           </li>
         ))}
       </ul>
